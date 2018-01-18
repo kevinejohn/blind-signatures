@@ -1,0 +1,22 @@
+{
+  "name": "blind-signatures",
+  "version": "1.0.0",
+  "description": "Chaum's Blind Signatures",
+  "main": "rsablind.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --write --single-quote --trailing-comma es5 *.js",
+    "demo": "node demo.js"
+  },
+  "author": "Kevin Johnson (KevinEJohn)",
+  "license": "ISC",
+  "dependencies": {
+    "js-sha3": "0.7.0",
+    "jsbn": "1.1.0",
+    "node-rsa": "0.4.2",
+    "secure-random": "1.1.1"
+  },
+  "devDependencies": {
+    "prettier": "1.10.2"
+  }
+}
