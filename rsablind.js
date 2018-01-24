@@ -1,15 +1,9 @@
 const secureRandom = require('secure-random');
 const BigInteger = require('jsbn').BigInteger;
 const sha3 = require('js-sha3').sha3_256;
-let NodeRSA;
-try {
-  NodeRSA = require('node-rsa');
-} catch(err) {
-  console.log('Could not load node-rsa', err);
-}
+const NodeRSA  = require('node-rsa');
 
 function keyGeneration(params) {
-  if (!NodeRSA) return; // Does not support node-rsa
   const key = new NodeRSA(params || { b: 2048 });
   return key;
 }
