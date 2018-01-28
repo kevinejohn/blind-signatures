@@ -4,7 +4,7 @@
   "description": "Chaum's Blind Signatures",
   "main": "rsablind.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "tape ./tests/**/*.js",
     "prettier": "prettier --write --single-quote --trailing-comma es5 *.js",
     "demo": "node demo.js"
   },
@@ -17,7 +17,8 @@
     "secure-random": "1.1.1"
   },
   "devDependencies": {
-    "prettier": "1.10.2"
+    "prettier": "1.10.2",
+    "tape": "4.8.0"
   },
   "homepage": "https://github.com/kevinejohn/blind-signatures"
 }
