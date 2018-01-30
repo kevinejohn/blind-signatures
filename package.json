@@ -7,9 +7,17 @@
     "build": "babel rsablind*.js --presets babel-preset-es2015 --out-dir dist",
     "prepublish": "npm run build",
     "test": "tape ./tests/**/*.js",
-    "prettier": "prettier --write --single-quote --trailing-comma es5 *.js",
-    "demo": "node demo.js"
+    "prettier": "prettier --write --single-quote --trailing-comma es5 *.js"
   },
+  "keywords": [
+    "signature",
+    "blinding",
+    "blind",
+    "signatures",
+    "chaum",
+    "message",
+    "signing"
+  ],
   "author": "Kevin Johnson (KevinEJohn)",
   "license": "ISC",
   "dependencies": {
@@ -24,5 +32,8 @@
     "prettier": "1.10.2",
     "tape": "4.8.0"
   },
-  "homepage": "https://github.com/kevinejohn/blind-signatures"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kevinejohn/blind-signatures.git"
+  }
 }
