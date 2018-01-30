@@ -14,6 +14,8 @@ The RSA key generation uses the node-only module `node-rsa` but everything else 
 
 ## Use
 
+`npm install --save blind-signatures`;
+
 ```
 const BlindSignature = require('blind-signatures');
 
