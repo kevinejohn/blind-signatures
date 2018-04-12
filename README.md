@@ -1,5 +1,7 @@
 # Chaum's Blind Signature
 
+[![NPM Package](https://img.shields.io/npm/v/blind-signatures.svg?style=flat-square)](https://www.npmjs.org/package/blind-signatures)
+
 
 ### Two implementations of RSA Blind Signatures
 
@@ -44,7 +46,6 @@ console.log('Message:', Alice.message);
 Alice.N = Bob.key.keyPair.n.toString();
 Alice.E = Bob.key.keyPair.e.toString();
 
-// N, E
 const { blinded, r } = BlindSignature.blind({
   message: Alice.message,
   N: Alice.N,
@@ -55,7 +56,6 @@ Alice.r = r;
 // Alice sends blinded to Bob
 Bob.blinded = blinded;
 
-// N, D (P, Q)
 const signed = BlindSignature.sign({
   blinded: Bob.blinded,
   key: Bob.key,
@@ -64,7 +64,6 @@ const signed = BlindSignature.sign({
 // Bob sends signed to Alice
 Alice.signed = signed;
 
-// N
 const unblinded = BlindSignature.unblind({
   signed: Alice.signed,
   N: Alice.N,
@@ -73,7 +72,6 @@ const unblinded = BlindSignature.unblind({
 Alice.unblinded = unblinded;
 
 // Alice verifies
-// N, E
 const result = BlindSignature.verify({
   unblinded: Alice.unblinded,
   N: Alice.N,
@@ -91,7 +89,6 @@ Bob.unblinded = Alice.unblinded;
 Bob.message = Alice.message;
 
 // Bob verifies
-// N, D
 const result2 = BlindSignature.verify2({
   unblinded: Bob.unblinded,
   key: Bob.key,

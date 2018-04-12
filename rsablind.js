@@ -1,7 +1,7 @@
 const secureRandom = require('secure-random');
 const BigInteger = require('jsbn').BigInteger;
 const sha3 = require('js-sha3').sha3_256;
-const NodeRSA  = require('node-rsa');
+const NodeRSA = require('node-rsa');
 
 function keyGeneration(params) {
   const key = new NodeRSA(params || { b: 2048 });
