@@ -1,7 +1,18 @@
-const secureRandom = require('secure-random');
 const BigInteger = require('jsbn').BigInteger;
 const sha3 = require('js-sha3').sha3_256;
 const NodeRSA = require('node-rsa');
+
+/**
+ * Simple wrapper for window.crypto.getRandomValues
+ * @param {Number} size Number of bytes
+ * @returns {Uint8Array} Contains random bytes
+ * @author Benji Altman
+ */
+function secureRandom(size) {
+	var tmp = new Uint8Array(size);
+	window.crypto.getRandomValues(tmp);
+	return tmp;
+}
 
 function keyGeneration(params) {
   const key = new NodeRSA(params || { b: 2048 });
