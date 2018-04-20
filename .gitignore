@@ -3,3 +3,6 @@ node_modules
 dist
 /.vs/ProjectSettings.json
 /.vs/slnx.sqlite
+/NodeJsApplication/nbproject/private/
+/nbproject/private/
+/nbproject

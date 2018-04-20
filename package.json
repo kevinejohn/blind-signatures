@@ -1,39 +1,13 @@
 {
-  "name": "blind-signatures",
-  "version": "1.0.4",
-  "description": "Chaum's Blind Signatures",
-  "main": "./dist/rsablind.js",
-  "scripts": {
-    "build": "babel rsablind*.js --presets babel-preset-es2015 --out-dir dist",
-    "prepublish": "npm run build",
-    "test": "tape ./tests/**/*.js",
-    "prettier": "prettier --write --single-quote --trailing-comma es5 *.js"
-  },
-  "keywords": [
-    "signature",
-    "blinding",
-    "blind",
-    "signatures",
-    "chaum",
-    "message",
-    "signing"
-  ],
-  "author": "Kevin Johnson (KevinEJohn)",
-  "license": "MIT",
-  "dependencies": {
-    "js-sha3": "0.7.0",
-    "jsbn": "1.1.0",
-    "node-rsa": "0.4.2",
-    "secure-random": "1.1.1"
-  },
-  "devDependencies": {
-    "babel-cli": "6.26.0",
-    "babel-preset-es2015": "6.24.1",
-    "prettier": "1.11.1",
-    "tape": "4.9.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/kevinejohn/blind-signatures.git"
+  "name": "blind-signatures", "version": "1.0.4", "description": "Chaum's Blind Signatures", "main": "./dist/rsablind.js", "scripts": {
+    "build": "babel rsablind*.js --presets babel-preset-es2015 --out-dir dist", "prepublish": "npm run build", "test": "tape ./tests/**/*.js", "prettier": "prettier --write --single-quote --trailing-comma es5 *.js"
+  }, "keywords": [
+    "signature", "blinding", "blind", "signatures", "chaum", "message", "signing"
+  ], "author": "Kevin Johnson (KevinEJohn)", "license": "MIT", "dependencies": {
+    "js-sha3": "0.7.0", "jsbn": "1.1.0", "node-rsa": "0.4.2"
+  }, "devDependencies": {
+    "babel-cli": "6.26.0", "babel-preset-es2015": "6.24.1", "prettier": "1.11.1", "tape": "4.9.0"
+  }, "repository": {
+    "type": "git", "url": "https://github.com/kevinejohn/blind-signatures.git"
   }
 }
