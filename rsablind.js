@@ -1,6 +1,6 @@
 const secureRandom = require('secure-random');
 const BigInteger = require('jsbn').BigInteger;
-const sha3 = require('js-sha3').sha3_256;
+const sha256 = require('js-sha256');
 const NodeRSA = require('node-rsa');
 
 function keyGeneration(params) {
@@ -17,7 +17,7 @@ function keyProperties(key) {
 }
 
 function messageToHash(message) {
-  const messageHash = sha3(message);
+  const messageHash = sha256(message);
   return messageHash;
 }
 
@@ -38,7 +38,7 @@ function blind({ message, key, N, E }) {
   let gcd;
   let r;
   do {
-    r = new BigInteger(secureRandom(10));
+    r = new BigInteger(secureRandom(64)).mod(N);
     gcd = r.gcd(N);
   } while (
     !gcd.equals(bigOne) ||

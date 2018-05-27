@@ -21,7 +21,7 @@
   "author": "Kevin Johnson (KevinEJohn)",
   "license": "MIT",
   "dependencies": {
-    "js-sha3": "0.7.0",
+    "js-sha256": "0.9.0",
     "jsbn": "1.1.0",
     "node-rsa": "0.4.2",
     "secure-random": "1.1.1"
