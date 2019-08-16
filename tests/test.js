@@ -3,7 +3,7 @@ const BlindSignature = require('../rsablind');
 const BlindSignature2 = require('../rsablind2'); // Other implimentation
 
 test('Full RSA Blind Signature test 1', (t) => {
-    t.plan(4);
+    t.plan(6);
 
     const Bob = {
       key: BlindSignature.keyGeneration({ b: 512 }),
@@ -95,10 +95,34 @@ test('Full RSA Blind Signature test 1', (t) => {
       message: 'Invalid message',
     });
     t.notOk(resultFailed2);
+
+    // Bob signs a lot of messages from Alice
+    // and wants to verify the content of a blinded message
+    // that he once signed
+
+    // Bob verifies the content of this specific blinded message
+    // makes sure it was not swaped for another message
+    // that Bob signed before.
+    const result3 = BlindSignature.verifyBlinding({
+      blinded: Bob.blinded,
+      unblinded: Bob.message,
+      r: Alice.r,
+      key: Bob.key,
+    });
+    t.ok(result3);
+
+    // Make sure invalid message fails
+    const resultFailed3 = BlindSignature.verifyBlinding({
+      blinded: Bob.blinded,
+      unblinded: "Bob have signed this before",
+      r: Alice.r,
+      key: Bob.key,
+    });
+    t.notOk(resultFailed3);
 });
 
 test('Full RSA Blind Signature test 2', (t) => {
-    t.plan(4);
+    t.plan(6);
 
     const Bob = {
       key: BlindSignature2.keyGeneration({ b: 512 }),
@@ -190,4 +214,28 @@ test('Full RSA Blind Signature test 2', (t) => {
       message: 'Invalid message',
     });
     t.notOk(resultFailed2);
+
+    // Bob signs a lot of messages from Alice
+    // and wants to verify the content of a blinded message
+    // that he once signed
+
+    // Bob verifies the content of this specific blinded message
+    // makes sure it was not swaped for another message
+    // that Bob signed before.
+    const result3 = BlindSignature.verifyBlinding({
+      blinded: Bob.blinded,
+      unblinded: Bob.message,
+      r: Alice.r,
+      key: Bob.key,
+    });
+    t.ok(result3);
+
+    // Make sure invalid message fails
+    const resultFailed3 = BlindSignature.verifyBlinding({
+      blinded: Bob.blinded,
+      unblinded: "Bob have signed this before",
+      r: Alice.r,
+      key: Bob.key,
+    });
+    t.notOk(resultFailed3);
 });
