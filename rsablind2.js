@@ -118,6 +118,19 @@ function verify2({ unblinded, key, message }) {
   return result;
 }
 
+function verifyBlinding({ blinded, r, unblinded, key, E, N }) {
+  const messageHash = messageToHashInt(unblinded);
+  r = new BigInteger(r.toString());
+  N = key ? key.keyPair.n : new BigInteger(N.toString());
+  E = key
+    ? new BigInteger(key.keyPair.e.toString())
+    : new BigInteger(E.toString());
+
+  const blindedHere = messageHash.multiply(r.modPow(E, N)).mod(N);
+  const result = blindedHere.equals(blinded);
+  return result;
+}
+
 module.exports = {
   keyGeneration,
   messageToHash,
@@ -126,4 +139,5 @@ module.exports = {
   unblind,
   verify,
   verify2,
+  verifyBlinding,
 };
