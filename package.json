@@ -23,15 +23,15 @@
   "dependencies": {
     "js-sha256": "0.9.0",
     "jsbn": "1.1.0",
-    "node-rsa": "1.0.5",
+    "node-rsa": "1.0.8",
     "secure-random": "1.1.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "prettier": "1.11.1",
-    "tape": "4.9.0"
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "prettier": "2.0.5",
+    "tape": "5.0.0"
   },
   "repository": {
     "type": "git",
