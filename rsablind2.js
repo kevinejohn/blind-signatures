@@ -56,10 +56,7 @@ function blind({ message, key, N, E }) {
   );
 
   // now that we got an r that satisfies the restrictions described we can proceed with calculation of mu
-  const mu = r
-    .modPow(bigE, bigN)
-    .multiply(messageHash)
-    .mod(bigN); // Alice computes mu = H(msg) * r^e mod N
+  const mu = r.modPow(bigE, bigN).multiply(messageHash).mod(bigN); // Alice computes mu = H(msg) * r^e mod N
   return {
     blinded: mu,
     r,
@@ -90,10 +87,7 @@ function sign({ blinded, key }) {
 function unblind({ signed, key, r, N }) {
   const bigN = key ? key.keyPair.n : new BigInteger(N.toString());
   const muprime = new BigInteger(signed.toString());
-  const s = r
-    .modInverse(bigN)
-    .multiply(muprime)
-    .mod(bigN); // Alice computes sig = mu'*r^-1 mod N, inverse of r mod N multiplied with muprime mod N, to remove the blinding factor
+  const s = r.modInverse(bigN).multiply(muprime).mod(bigN); // Alice computes sig = mu'*r^-1 mod N, inverse of r mod N multiplied with muprime mod N, to remove the blinding factor
   return s;
 }
 
